@@ -4,10 +4,10 @@
 class MuslCross < Formula
   desc "Linux cross compilers based on musl libc"
   homepage "https://github.com/jthat/musl-cross-make"
-  url "https://github.com/jthat/musl-cross-make/archive/cc9682d.tar.gz"
-  version "0.9.9-cc9682d"
+  url "https://github.com/jthat/musl-cross-make/archive/f2313df.tar.gz"
+  version "0.9.9-f2313df"
   sha256 "438e70d720093c3dbcb49c0cab281fba5fac938fd32b7861b47fde369c7618c3"
-  head "https://github.com/jthat/musl-cross-make.git", branch: "cc9682d"
+  head "https://github.com/jthat/musl-cross-make.git", branch: "f2313df"
 
   option "with-aarch64", "Build cross-compilers targeting aarch64-linux-musl"
   option "with-arm-hf", "Build cross-compilers targeting arm-linux-musleabihf"
