@@ -6,7 +6,7 @@ class MuslCross < Formula
   homepage "https://github.com/jthat/musl-cross-make"
   url "https://github.com/jthat/musl-cross-make/archive/f2313df.tar.gz"
   version "0.9.9-f2313df"
-  sha256 "438e70d720093c3dbcb49c0cab281fba5fac938fd32b7861b47fde369c7618c3"
+  sha256 "cc566f2284ee2ad11de968b8a2587c63a1b513aa0ff9c55c6c1b126d33778c2e"
   head "https://github.com/jthat/musl-cross-make.git", branch: "f2313df"
 
   option "with-aarch64", "Build cross-compilers targeting aarch64-linux-musl"
