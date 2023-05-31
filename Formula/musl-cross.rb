@@ -130,9 +130,9 @@ class MuslCross < Formula
         fakejdk_bin.mkpath
         %w[javac java].each do |b|
           (fakejdk_bin/b).write <<~EOS
-          #!/bin/sh
-          exit 1
-        EOS
+            #!/bin/sh
+            exit 1
+          EOS
           chmod "+x", fakejdk_bin/b
         end
         ENV.prepend_path "PATH", fakejdk_bin
