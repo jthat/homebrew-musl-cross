@@ -189,7 +189,10 @@ class MuslCross < Formula
   }.freeze
 
   test do
-    ENV.clear
+    targets = []
+    OPTION_TARGET_MAP.each do |option, target|
+      targets.push target if build.with?(option) || build.with?("all-targets")
+    end
 
     (testpath/"hello.c").write <<-EOS
       #include <stdio.h>
@@ -207,20 +210,23 @@ class MuslCross < Formula
       }
     EOS
 
-    OPTION_TARGET_MAP.each do |option, target|
-      next if build.without?(option) && build.without?("all-targets")
-
-      test_prog = "hello-#{target}"
+    targets.each do |target|
+      test_prog = "hello-cc-#{target}"
       system bin/"#{target}-cc", "-O2", "hello.c", "-o", test_prog
+      assert_equal 0, $CHILD_STATUS.exitstatus
       assert_predicate testpath/test_prog, :exist?
       TEST_OPTION_MAP.each do |prog, options|
-        system bin/"#{target}-#{prog}", *options, test_prog
+        assert_match((prog == "strip") ? "" : /\S+/,
+                     shell_output([bin/"#{target}-#{prog}", *options, test_prog].join(" ")))
       end
 
+      test_prog = "hello-c++-#{target}"
       system bin/"#{target}-c++", "-O2", "hello.cpp", "-o", test_prog
+      assert_equal 0, $CHILD_STATUS.exitstatus
       assert_predicate testpath/test_prog, :exist?
       TEST_OPTION_MAP.each do |prog, options|
-        system bin/"#{target}-#{prog}", *options, test_prog
+        assert_match((prog == "strip") ? "" : /\S+/,
+                     shell_output([bin/"#{target}-#{prog}", *options, test_prog].join(" ")))
       end
     end
   end
