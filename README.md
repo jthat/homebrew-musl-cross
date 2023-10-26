@@ -2,7 +2,7 @@
 
 [Homebrew](https://brew.sh/) package manager formula to install cross-compiler toolchains targeting Linux boxes.
 
-The default installation contains toolchains for x86 64-bit Linux (`x86_64-linux-musl`) and ARM 32/64-bit Linux (`arm-linux-musleabihf`/`aarch64-linux-musl`) as used on Raspberry Pi and similar devices. Others can be installed with package options (see `brew info`).
+The default installation contains toolchains for x86 64-bit Linux (`x86_64-linux-musl`). Others can be installed with package options (see `brew info`).
 
 Note, when using the toolchain, the generated binaries will only run on a system with `musl` libc installed. Either musl-based distributions like Alpine Linux or distributions having `musl` libc installed as separate packages (e.g., Debian/Ubuntu).
 
