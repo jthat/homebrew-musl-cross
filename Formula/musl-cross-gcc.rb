@@ -4,7 +4,7 @@
 class MuslCrossGcc < Formula
   desc "Linux cross compilers based on gcc and musl libc"
   homepage "https://github.com/jthat/musl-cross-make"
-  url "https://github.com/jthat/musl-cross-make/archive/v1.1.0.tar.gz"
+  url "https://github.com/jthat/musl-cross-make/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "ee9b6e5c84e1e0e7a9c69ba110ec503d63781c4be4a9d767dfad36200690ce30"
   head "https://github.com/jthat/musl-cross-make.git", branch: "master"
 
