@@ -8,6 +8,11 @@ class MuslCrossClang < Formula
   sha256 "9437f4a0252a7f4a183664e6bffea0dd4286d6cec1725150e60f2c5b6e4cc7bd"
   head "https://github.com/jthat/musl-cross-make.git", branch: "master"
 
+  bottle do
+    root_url "https://github.com/jthat/homebrew-musl-cross/releases/download/musl-cross-clang-1.1.1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d9ff8214d3a00aa8462914360f7e8a474258df4b8c9e4c03b42d5bf4eb2f6903"
+  end
+
   LINUX_VER      = "4.19.295"
   LLVM_VER       = "17.0.2"
   MUSL_VER       = "1.2.4"
