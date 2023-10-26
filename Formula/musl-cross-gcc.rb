@@ -1,18 +1,12 @@
 # typed: false
 # frozen_string_literal: true
 
-class MuslCross < Formula
+class MuslCrossGcc < Formula
   desc "Linux cross compilers based on gcc and musl libc"
   homepage "https://github.com/jthat/musl-cross-make"
   url "https://github.com/jthat/musl-cross-make/archive/v1.1.0.tar.gz"
   sha256 "ee9b6e5c84e1e0e7a9c69ba110ec503d63781c4be4a9d767dfad36200690ce30"
   head "https://github.com/jthat/musl-cross-make.git", branch: "master"
-
-  bottle do
-    root_url "https://github.com/jthat/homebrew-musl-cross/releases/download/musl-cross-1.1.0"
-    sha256 cellar: :any,                 ventura:      "a7f2cebb86c55e92ce9ce191cfb48f90a5e60313df0df37f595b6accef3ca48a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "4e713eb65361166e1e20b6f295ce95e55044384e2920887d5403140c64654e89"
-  end
 
   LINUX_VER      = "4.19.295"
   GCC_VER        = "13.2.0"

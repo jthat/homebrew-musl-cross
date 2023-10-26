@@ -26,7 +26,7 @@ Depends on [jthat/musl-cross-make](https://github.com/jthat/musl-cross-make) to 
 1. Install with Homebrew:
     ```sh
     $ brew tap jthat/musl-cross
-    $ brew install musl-cross
+    $ brew install musl-cross-gcc
     ```
 
 2. For dynamically linked applications, ensure the correct version of `musl` is installed on the target device.
