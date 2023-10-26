@@ -1,3 +1,4 @@
 [
+  "musl-cross-clang",
   "musl-cross-gcc"
 ]

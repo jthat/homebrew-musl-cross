@@ -10,15 +10,18 @@ Binaries statically linked with `musl` libc (linked with `-static`) have no exte
 
 **Tool Versions:**
 - [Linux](https://kernel.org/) 4.19.295
-- [GCC](https://gcc.gnu.org/) 13.2.0
-- [binutils](https://www.gnu.org/software/binutils/) 2.41
 - [musl libc](https://www.musl-libc.org/) 1.2.4
+- For GCC:
+  - [GCC](https://gcc.gnu.org/) 13.2.0
+  - [binutils](https://www.gnu.org/software/binutils/) 2.41
+- For Clang:
+  - [Clang](https://clang.llvm.org/) 17.0.2
 
 Partially based on:
  - [FiloSottile/homebrew-musl-cross](https://github.com/FiloSottile/homebrew-musl-cross)
  - [MarioSchwalbe/homebrew-gcc-musl-cross](https://github.com/MarioSchwalbe/homebrew-gcc-musl-cross)
 
-Depends on [jthat/musl-cross-make](https://github.com/jthat/musl-cross-make) to do the heavy lifting, which is in turn based on [richfelker/musl-cross-make](https://github.com/richfelker/musl-cross-make).
+Depends on [jthat/musl-cross-make](https://github.com/jthat/musl-cross-make) to do the heavy lifting, which is in turn based on [richfelker/musl-cross-make](https://github.com/richfelker/musl-cross-make) and the clang branch of [apexrtos/musl-cross-make](https://github.com/apexrtos/musl-cross-make/tree/clang).
 
 
 # Usage
@@ -26,13 +29,19 @@ Depends on [jthat/musl-cross-make](https://github.com/jthat/musl-cross-make) to 
 1. Install with Homebrew:
     ```sh
     $ brew tap jthat/musl-cross
+    ```
+  - To use GCC:
+    ```sh
     $ brew install musl-cross-gcc
+    ```
+  - To use Clang:
+    ```sh
+    $ brew install musl-cross-clang
     ```
 
 2. For dynamically linked applications, ensure the correct version of `musl` is installed on the target device.
 
-3. Compile with `<TARGET>-gcc` e.g., `x86_64-linux-musl-gcc`, deploy, and run.
-
+3. Compile with `<TARGET>-cc` e.g., `x86_64-linux-musl-cc`, deploy, and run.
 
 # Supported Targets
 
