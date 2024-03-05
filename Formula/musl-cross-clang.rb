@@ -4,18 +4,13 @@
 class MuslCrossClang < Formula
   desc "Linux cross compilers based on clang and musl libc"
   homepage "https://github.com/jthat/musl-cross-make"
-  url "https://github.com/jthat/musl-cross-make/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "9437f4a0252a7f4a183664e6bffea0dd4286d6cec1725150e60f2c5b6e4cc7bd"
+  url "https://github.com/jthat/musl-cross-make/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "3f7fcadae71814591db444463a983833dafdda211eeaf6060480bd27bb3befd9"
   head "https://github.com/jthat/musl-cross-make.git", branch: "master"
 
-  bottle do
-    root_url "https://github.com/jthat/homebrew-musl-cross/releases/download/musl-cross-clang-1.1.1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d9ff8214d3a00aa8462914360f7e8a474258df4b8c9e4c03b42d5bf4eb2f6903"
-  end
-
-  LINUX_VER      = "4.19.295"
-  LLVM_VER       = "17.0.2"
-  MUSL_VER       = "1.2.4"
+  LINUX_VER      = "4.19.308"
+  LLVM_VER       = "17.0.6"
+  MUSL_VER       = "1.2.5"
 
   OPTION_TARGET_MAP = {
     "x86"       => "i686-linux-musl",
@@ -59,17 +54,17 @@ class MuslCrossClang < Formula
 
   resource "linux-#{LINUX_VER}.tar.xz" do
     url "https://cdn.kernel.org/pub/linux/kernel/v#{LINUX_VER.sub(/^([^.])\..*$/, '\1')}.x/linux-#{LINUX_VER}.tar.xz"
-    sha256 "b732c2e4f08576a9dd5bb14213cead3835acbb101a91aaba3d6ace302fd538ac"
+    sha256 "2a51ce1c3fd4359dbb6b93607741a77bee1116a39d70a6f0ce88d4727afb01c9"
   end
 
   resource "llvm-project-#{LLVM_VER}.src.tar.xz" do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-#{LLVM_VER}/llvm-project-#{LLVM_VER}.src.tar.xz"
-    sha256 "351562b14d42fcefcbf00cc1f327680a1062bbbf67a1e1ca6acb64c473b06394"
+    sha256 "58a8818c60e6627064f312dbf46c02d9949956558340938b71cf731ad8bc0813"
   end
 
   resource "musl-#{MUSL_VER}.tar.gz" do
     url "https://www.musl-libc.org/releases/musl-#{MUSL_VER}.tar.gz"
-    sha256 "7a35eae33d5372a7c0da1188de798726f68825513b7ae3ebe97aaaa52114f039"
+    sha256 "a9a118bbe84d8764da0ea0d28b3ab3fae8477fc7e4085d90102b8596fc7c75e4"
   end
 
   def install
