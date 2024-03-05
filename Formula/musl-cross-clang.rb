@@ -51,12 +51,11 @@ class MuslCrossClang < Formula
   depends_on "python@3.11" => :build
   depends_on "swig" => :build
 
+  depends_on "libedit"
   depends_on :linux
+  depends_on "ncurses"
+  depends_on "zlib"
   depends_on "zstd"
-
-  uses_from_macos "libedit"
-  uses_from_macos "ncurses"
-  uses_from_macos "zlib"
 
   resource "linux-#{LINUX_VER}.tar.xz" do
     url "https://cdn.kernel.org/pub/linux/kernel/v#{LINUX_VER.sub(/^([^.])\..*$/, '\1')}.x/linux-#{LINUX_VER}.tar.xz"
