@@ -8,6 +8,12 @@ class MuslCrossGcc < Formula
   sha256 "3f7fcadae71814591db444463a983833dafdda211eeaf6060480bd27bb3befd9"
   head "https://github.com/jthat/musl-cross-make.git", branch: "master"
 
+  bottle do
+    root_url "https://github.com/jthat/homebrew-musl-cross/releases/download/musl-cross-gcc-1.2.1"
+    sha256 cellar: :any,                 ventura:      "dc582830aaf28e33e4d5f15d976340fdaf9583dddd36c11baf2eb6401831485a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "39ed691f5d3271a6dc8efb40e2ec36c2eb3bc74362c440d32d16e489622626c4"
+  end
+
   LINUX_VER      = "4.19.308"
   GCC_VER        = "13.2.0"
   BINUTILS_VER   = "2.42"
