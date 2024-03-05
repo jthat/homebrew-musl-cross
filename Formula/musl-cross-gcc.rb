@@ -4,21 +4,15 @@
 class MuslCrossGcc < Formula
   desc "Linux cross compilers based on gcc and musl libc"
   homepage "https://github.com/jthat/musl-cross-make"
-  url "https://github.com/jthat/musl-cross-make/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "9437f4a0252a7f4a183664e6bffea0dd4286d6cec1725150e60f2c5b6e4cc7bd"
+  url "https://github.com/jthat/musl-cross-make/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "3f7fcadae71814591db444463a983833dafdda211eeaf6060480bd27bb3befd9"
   head "https://github.com/jthat/musl-cross-make.git", branch: "master"
 
-  bottle do
-    root_url "https://github.com/jthat/homebrew-musl-cross/releases/download/musl-cross-gcc-1.1.1"
-    sha256 cellar: :any,                 ventura:      "217b403b92c0c7fd5730d846ac7a5b0fc1892d149d30801a9fdfe5db9d4e059d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3e195c7af96eacc900f36ea7b86a73e71c7690d71ee55292d1d417b306b50e18"
-  end
-
-  LINUX_VER      = "4.19.295"
+  LINUX_VER      = "4.19.308"
   GCC_VER        = "13.2.0"
-  BINUTILS_VER   = "2.41"
-  MUSL_VER       = "1.2.4"
-  CONFIG_SUB_REV = "28ea239c53a2"
+  BINUTILS_VER   = "2.42"
+  MUSL_VER       = "1.2.5"
+  CONFIG_SUB_REV = "948ae97ca570"
 
   OPTION_TARGET_MAP = {
     "x86"       => "i686-linux-musl",
@@ -63,7 +57,7 @@ class MuslCrossGcc < Formula
 
   resource "linux-#{LINUX_VER}.tar.xz" do
     url "https://cdn.kernel.org/pub/linux/kernel/v#{LINUX_VER.sub(/^([^.])\..*$/, '\1')}.x/linux-#{LINUX_VER}.tar.xz"
-    sha256 "b732c2e4f08576a9dd5bb14213cead3835acbb101a91aaba3d6ace302fd538ac"
+    sha256 "2a51ce1c3fd4359dbb6b93607741a77bee1116a39d70a6f0ce88d4727afb01c9"
   end
 
   resource "gcc-#{GCC_VER}.tar.xz" do
@@ -73,17 +67,17 @@ class MuslCrossGcc < Formula
 
   resource "binutils-#{BINUTILS_VER}.tar.xz" do
     url "https://ftp.gnu.org/gnu/binutils/binutils-#{BINUTILS_VER}.tar.xz"
-    sha256 "ae9a5789e23459e59606e6714723f2d3ffc31c03174191ef0d015bdf06007450"
+    sha256 "f6e4d41fd5fc778b06b7891457b3620da5ecea1006c6a4a41ae998109f85a800"
   end
 
   resource "musl-#{MUSL_VER}.tar.gz" do
     url "https://www.musl-libc.org/releases/musl-#{MUSL_VER}.tar.gz"
-    sha256 "7a35eae33d5372a7c0da1188de798726f68825513b7ae3ebe97aaaa52114f039"
+    sha256 "a9a118bbe84d8764da0ea0d28b3ab3fae8477fc7e4085d90102b8596fc7c75e4"
   end
 
   resource "config.sub" do
     url "https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=#{CONFIG_SUB_REV}"
-    sha256 "465c5fe67c7d36b72e808812716445d4d38d4b94734ca8d36a8639d12323878b"
+    sha256 "fe3a2f32fbaff57848732549f48d983fd6526024ec2f0f5a9dc75c2f4359a3a6"
   end
 
   def install
