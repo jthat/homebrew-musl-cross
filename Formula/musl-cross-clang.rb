@@ -4,17 +4,12 @@
 class MuslCrossClang < Formula
   desc "Linux cross compilers based on clang and musl libc"
   homepage "https://github.com/jthat/musl-cross-make"
-  url "https://github.com/jthat/musl-cross-make/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "3f7fcadae71814591db444463a983833dafdda211eeaf6060480bd27bb3befd9"
+  url "https://github.com/jthat/musl-cross-make/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "479a3cc22068ceeb09d5168c084eb6449d5e1e33579fcccf55435249170a28fd"
   head "https://github.com/jthat/musl-cross-make.git", branch: "master"
 
-  bottle do
-    root_url "https://github.com/jthat/homebrew-musl-cross/releases/download/musl-cross-clang-1.2.1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "65b6a4fe9e929b1f8a3d7620fd5d2636753bdcd8230af36f3d302bec6b163bbc"
-  end
-
-  LINUX_VER      = "4.19.308"
-  LLVM_VER       = "17.0.6"
+  LINUX_VER      = "4.19.325"
+  LLVM_VER       = "20.1.5"
   MUSL_VER       = "1.2.5"
 
   OPTION_TARGET_MAP = {
@@ -59,12 +54,12 @@ class MuslCrossClang < Formula
 
   resource "linux-#{LINUX_VER}.tar.xz" do
     url "https://cdn.kernel.org/pub/linux/kernel/v#{LINUX_VER.sub(/^([^.])\..*$/, '\1')}.x/linux-#{LINUX_VER}.tar.xz"
-    sha256 "2a51ce1c3fd4359dbb6b93607741a77bee1116a39d70a6f0ce88d4727afb01c9"
+    sha256 "607bed7de5cda31a443df4c8a78dbe5e8a9ad31afde2a4d28fe99ab4730e8de1"
   end
 
   resource "llvm-project-#{LLVM_VER}.src.tar.xz" do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-#{LLVM_VER}/llvm-project-#{LLVM_VER}.src.tar.xz"
-    sha256 "58a8818c60e6627064f312dbf46c02d9949956558340938b71cf731ad8bc0813"
+    sha256 "a069565cd1c6aee48ee0f36de300635b5781f355d7b3c96a28062d50d575fa3e"
   end
 
   resource "musl-#{MUSL_VER}.tar.gz" do
