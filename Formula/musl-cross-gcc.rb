@@ -216,7 +216,7 @@ class MuslCrossGcc < Formula
       test_prog = "hello-cc-#{target}"
       system bin/"#{target}-cc", "-O2", "hello.c", "-o", test_prog
       assert_equal 0, $CHILD_STATUS.exitstatus
-      assert_predicate testpath/test_prog, :exist?
+      assert_path_exists testpath/test_prog
       TEST_OPTION_MAP.each do |prog, options|
         assert_match((prog == "strip") ? "" : /\S+/,
                      shell_output([bin/"#{target}-#{prog}", *options, test_prog].join(" ")))
@@ -225,7 +225,7 @@ class MuslCrossGcc < Formula
       test_prog = "hello-c++-#{target}"
       system bin/"#{target}-c++", "-O2", "hello.cpp", "-o", test_prog
       assert_equal 0, $CHILD_STATUS.exitstatus
-      assert_predicate testpath/test_prog, :exist?
+      assert_path_exists testpath/test_prog
       TEST_OPTION_MAP.each do |prog, options|
         assert_match((prog == "strip") ? "" : /\S+/,
                      shell_output([bin/"#{target}-#{prog}", *options, test_prog].join(" ")))
